@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:RecordAnalyzerApp.MarkupExtensions"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="RecordAnalyzerApp.Intro.IntroPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="bulletStyle" TargetType="Image">
+                <Setter Property="Aspect" Value="AspectFit"/>
+                <Setter Property="WidthRequest" Value="10"/>
+                <Setter Property="HeightRequest" Value="10"/>
+                <Setter Property="Source" Value="{local:EmbeddedImage 0}"/>
+            </Style>
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="BorderRadius" Value="10"/>
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="Opacity" Value="0.7"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <AbsoluteLayout>
+        <CarouselView x:Name="IntroCarouselView" 
+                      CurrentItemChanged="IntroCarouselView_CurrentItemChanged"
+                      AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                      AbsoluteLayout.LayoutFlags="All">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding ImgSource}" Aspect="Fill"/>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <Button x:Name="skipIntro"
+                Style="{StaticResource buttonStyle}"
+                Text="Skip"
+                AbsoluteLayout.LayoutBounds="0.5, 0.01, 0.35, 35"
+                AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                Clicked="Start_Clicked"
+                />
+
+        <Button x:Name="startApp"
+                Style="{StaticResource buttonStyle}"
+                Text="Start"
+                BackgroundColor="#5C3732"
+                TextColor="White"
+                AbsoluteLayout.LayoutBounds="0.5, 0.35, 0.35, 35"
+                AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                Clicked="Start_Clicked"
+                />
+        
+        <StackLayout x:Name="bulletImagesStack" 
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     AbsoluteLayout.LayoutBounds="0,1,1,50"
+                     AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" 
+                     >
+            <Image Style="{StaticResource bulletStyle}"/>
+            <Image Style="{StaticResource bulletStyle}"/>
+            <Image Style="{StaticResource bulletStyle}"/>
+            <Image Style="{StaticResource bulletStyle}"/>
+            <Image Style="{StaticResource bulletStyle}"/>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

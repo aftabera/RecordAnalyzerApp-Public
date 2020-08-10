@@ -1,0 +1,99 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <AssemblyName>RecordS</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microcharts" Version="0.7.1" />
+    <PackageReference Include="Microcharts.Forms" Version="0.7.1" />
+    <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="About\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\ChartTypeCell.xaml.cs">
+      <DependentUpon>ChartTypeCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\FilterTypeCell.xaml.cs">
+      <DependentUpon>FilterTypeCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\GroupableColumnListCell.xaml.cs">
+      <DependentUpon>GroupableColumnListCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\ColumnListCell.xaml.cs">
+      <DependentUpon>ColumnListCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\DateGroupingCell.xaml.cs">
+      <DependentUpon>DateGroupingCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\DatePairCell.xaml.cs">
+      <DependentUpon>DatePairCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="LoadingPage.xaml.cs">
+      <DependentUpon>LoadingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="RecordStoreColumn.xaml.cs">
+      <DependentUpon>RecordStoreColumn.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="RecordStoreNew.xaml.cs">
+      <DependentUpon>RecordStoreNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="RecordStoreGraphViewer.xaml.cs">
+      <DependentUpon>RecordStoreGraphViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="RecordStoreGraph.xaml.cs">
+      <DependentUpon>RecordStoreGraph.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="About\AboutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Intro\IntroPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RecordStoreData.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RecordStoreColumn.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RecordStoreDataForm.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RecordStoreNew.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RecordStoreEditor.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RecordStoreList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RecordStoreReports.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\DateCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RecordStoreReportsViewer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

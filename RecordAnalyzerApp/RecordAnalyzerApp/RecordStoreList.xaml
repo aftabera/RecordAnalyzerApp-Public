@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:RecordAnalyzerApp.MarkupExtensions"
+             xmlns:ads="clr-namespace:RecordAnalyzerApp.Controls"
+             x:Class="RecordAnalyzerApp.RecordStoreList"
+             Title="Record Stores List">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnNew" Text="New" Clicked="btnNew_Clicked" Order="Primary" />
+        <ToolbarItem x:Name="btnDBBackup" Text="Backup" Clicked="btnDBBackup_Clicked"  Order="Secondary" />
+        <ToolbarItem x:Name="btnDBRestore" Text="Restore" Clicked="btnDBRestore_Clicked"  Order="Secondary" />
+        <ToolbarItem x:Name="btnDBSize" Text="Database Size" Clicked="btnDBSize_Clicked" Order="Secondary" />
+        <ToolbarItem x:Name="btnAbout" Text="About" Clicked="btnAbout_Clicked"  Order="Secondary" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="storesListView" 
+                  Margin="0,20,0,0" 
+                  ItemTapped="storesListView_ItemTapped"
+                  HasUnevenRows="True"
+                  SeparatorColor="Blue"
+                  BackgroundColor="Transparent"
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0, 20, 0, 20">
+                            <Label Text="{Binding StoreName}" FontSize="25" FontAttributes="Bold" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ads:AdControlView x:Name="MyAdView" 
+                           HeightRequest="90"
+                           Grid.Row="1" 
+                           Grid.Column="0"/>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ads="clr-namespace:RecordAnalyzerApp.Controls"
+             x:Class="RecordAnalyzerApp.RecordStoreData">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnNew" Text="Add" Clicked="btnNew_Clicked"  Order="Primary" />
+        <ToolbarItem x:Name="btnToday" Text="Today" Order="Secondary" />
+        <ToolbarItem x:Name="btnYesterday" Text="Yesterday" Order="Secondary" />
+        <ToolbarItem x:Name="btnThisWeek" Text="ThisWeek" Order="Secondary" />
+        <ToolbarItem x:Name="btnLastWeek" Text="LastWeek" Order="Secondary" />
+        <ToolbarItem x:Name="btnThisMonth" Text="ThisMonth" Order="Secondary" />
+        <ToolbarItem x:Name="btnLastMonth" Text="LastMonth" Order="Secondary" />
+        <ToolbarItem x:Name="btnThisYear" Text="ThisYear" Order="Secondary" />
+        <ToolbarItem x:Name="btnLastYear" Text="LastYear" Order="Secondary" />
+        <ToolbarItem x:Name="btnAll" Text="ALL" Order="Secondary" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <BoxView BackgroundColor="#e1f0fa"
+                 Grid.Row="0"
+                 Grid.Column="0"
+                 />
+
+        <StackLayout BackgroundColor="Transparent"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     >
+            <SearchBar x:Name="searchText" 
+                       Placeholder="Search..." 
+                       TextChanged="searchText_TextChanged" 
+                       SearchButtonPressed="searchText_SearchButtonPressed" 
+                       BackgroundColor="Transparent"
+                       />
+            <ListView x:Name="myListView" Margin="10, 0, 0, 0" 
+                      ItemTapped="myListView_ItemTapped"
+                      BackgroundColor="Transparent"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding MasterDateTime, StringFormat='{0:dd MMM, yyyy - hh:mm:ss tt}'}" 
+                                  Detail="{Binding PrimaryValue}"
+                                  />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+        <ads:AdControlView x:Name="MyAdView" 
+                           HeightRequest="90"
+                           Grid.Row="1" 
+                           Grid.Column="0"/>
+        
+    </Grid>
+
+    
+</ContentPage>
+    

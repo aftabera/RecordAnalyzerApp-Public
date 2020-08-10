@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ads="clr-namespace:RecordAnalyzerApp.Controls"
+             xmlns:local="clr-namespace:RecordAnalyzerApp.MarkupExtensions"
+             x:Class="RecordAnalyzerApp.RecordStoreNew"
+             Title="Create">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Image">
+                <Setter Property="Aspect" Value="AspectFit"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnSaveStore" Text="Save" Clicked="btnSaveStore_Clicked" />
+        <ToolbarItem x:Name="btnDelete" Text="Delete" Clicked="btnDelete_Clicked"  Order="Secondary" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+
+        <Grid x:Name="myLayout"
+              RowSpacing="0"
+              ColumnSpacing="0"
+              >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <BoxView BackgroundColor="Black"
+                     Grid.Row="0"
+                     Grid.ColumnSpan="2"
+                     />
+            <Entry x:Name="txtStoreName" 
+                   Placeholder="Store Name" 
+                   MaxLength="50" 
+                   Text="{Binding StoreName}"
+                   TextColor="HotPink"
+                   PlaceholderColor="Gray"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   />
+
+            <BoxView BackgroundColor="#2ECC71" 
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     />
+            <Image Source="{local:EmbeddedImage 2000}"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   />
+            <Button x:Name="btnEditTypes" 
+                    Clicked="btnEditTypes_Clicked" 
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    />
+            
+            <BoxView BackgroundColor="#3498DB" 
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     />
+            <Image x:Name="viewDataBG" Source="{local:EmbeddedImage 1000}"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   />
+            <Button x:Name="btnViewData" 
+                    Clicked="btnViewData_Clicked" 
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    />
+
+            <BoxView BackgroundColor="#E74C3C" 
+                     Grid.Row="2"
+                     Grid.Column="0"
+                     />
+            <Image Source="{local:EmbeddedImage 3000}"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   />
+            <Button x:Name="btnViewReports" 
+                    Clicked="btnViewReports_Clicked" 
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    />
+
+            <BoxView BackgroundColor="#34495E" 
+                     Grid.Row="2"
+                     Grid.Column="1"
+                     />
+            <Image Source="{local:EmbeddedImage 4000}"
+                   Grid.Row="2"
+                   Grid.Column="1"
+                   />
+            <Button x:Name="btnViewGraphs" 
+                    Clicked="btnViewGraphs_Clicked" 
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    />
+
+            <ads:AdControlView x:Name="MyAdView" 
+                               HeightRequest="90"
+                               Grid.Row="3" 
+                               Grid.ColumnSpan="2"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Report View"
+             x:Class="RecordAnalyzerApp.RecordStoreReportsViewer">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="shareButton" Text="Share" Clicked="shareButton_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ActivityIndicator x:Name="myActivityIndicator" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <WebView x:Name="myWebView" VerticalOptions="FillAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

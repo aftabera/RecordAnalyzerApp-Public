@@ -1,0 +1,18 @@
+<ItemGroup>
+    <None Include="DotfuscatorConfig.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <PropertyGroup>
+    <DotfuscatorXamarinConfigFileName>DotfuscatorConfig.xml</DotfuscatorXamarinConfigFileName>
+    <DotfuscatorXamarinCliPath>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\PreEmptiveSolutions\DotfuscatorCE\dotfuscatorCLI.exe</DotfuscatorXamarinCliPath>
+    <DotfuscatorXamarinGenerateNewConfigFile>true</DotfuscatorXamarinGenerateNewConfigFile>
+    <!-- Enable Dotfuscator for Release -->
+    <DotfuscatorXamarinEnabled Condition="'$(Configuration)' == 'Release'">true</DotfuscatorXamarinEnabled>
+
+    <!-- Enable Dotfuscator for Ad-Hoc (only needed for iOS) -->
+    <DotfuscatorXamarinEnabled Condition="'$(Configuration)' == 'Ad-Hoc'">true</DotfuscatorXamarinEnabled>
+
+    <!-- Enable Dotfuscator for AppStore (only needed for iOS) -->
+    <DotfuscatorXamarinEnabled Condition="'$(Configuration)' == 'AppStore'">true</DotfuscatorXamarinEnabled>
+  </PropertyGroup>
+  <Import Project="../../PreEmptive.Dotfuscator.Xamarin/PreEmptive.Dotfuscator.Xamarin.targets"/>
